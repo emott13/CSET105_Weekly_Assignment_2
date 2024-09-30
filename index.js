@@ -2,6 +2,7 @@
 //rock choice
 //paper choice
 //scissors choice
+//changed emojiShuffle variable name, changed playTheGame else if statement conditions, changed event listener function calls to callbacks
 
 var emojis = ["✂️ ", "📃", "🪨",]
 var emojiNum = 0;
@@ -12,9 +13,9 @@ let rock = document.querySelector('.rock');
 let paper = document.querySelector('.paper');
 let scissors = document.querySelector('.scissors');
 
-rock.addEventListener('click', playTheGame(emojis[2]));
-paper.addEventListener('click,', playTheGame(emojis[1]));
-scissors.addEventListener('click', playTheGame(emojis[0]));
+rock.addEventListener('click', () => playTheGame(emojis[2]));
+paper.addEventListener('click,', () => playTheGame(emojis[1]));
+scissors.addEventListener('click', () => playTheGame(emojis[0]));
 
 
 function playTheGame(choice){
@@ -29,20 +30,14 @@ function playTheGame(choice){
         //add tie count
         //display result as tie
     }
-    else if(choice == '🪨'){
-        if (computerChoice == '✂️ '){
+    else if(choice == '🪨' && computerChoice == '✂️ '){
             return //player wins
-        }
     }
-    else if(choice == '📃'){
-        if(computerChoice == '🪨'){
+    else if(choice == '📃' && computerChoice == '🪨'){
             return //player wins
-        }
     }
-    else if(choice == '✂️ '){
-        if(computerChoice == '📃'){
+    else if(choice == '✂️ ' && computerChoice == '📃'){
             return //player wins
-        }
     }
     else{
         return //computer wins
@@ -51,8 +46,8 @@ function playTheGame(choice){
 }
 
 function emojiShuffle(){
-    computerChoice = emojis[emojiNum];
-    shuffleEmojis.textContent = computerChoice;
+    comChoice = emojis[emojiNum];
+    shuffleEmojis.textContent = comChoice;
     if(emojiNum < emojis.length - 1){
         emojiNum++;
     }
