@@ -1,18 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="index.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock-Paper-Scissors</title>
 </head>
 <body>
-    <div class="buttons">
-        <button class="game rock">Rock</button>
-        <button class="game paper">Paper</button>
-        <button class="game scissors">Scissors</button>
+    <section class="game">
+        <div class="buttons"></div>
+            <button class="rock">🪨</button>
+            <button class="paper">📃</button>
+            <button class="scissors">✂️ </button>
+        </div>
+        <div>
+            <h2>Computer</h2>
+            <p id="emoji-shuffle"></p>
+        </div>
+    <div class="playerScore">
+        <h3>Player score</h3>
+        <p>0</p>
     </div>
-    <div class="score">
-
+    <div class="computerScore">
+        <h3>Computer score</h3>
+        <p>0</p>
     </div>
+    </section>
+    <script src="index.js"></script>
 </body>
 </html>
