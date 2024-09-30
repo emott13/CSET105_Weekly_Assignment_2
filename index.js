@@ -2,20 +2,35 @@
 //rock choice
 //paper choice
 //scissors choice
-//changed emojiShuffle variable name, changed playTheGame else if statement conditions, changed event listener function calls to callbacks
+//changes: condensed playTheGame else if statements into single else if statement, added semicolons, +result, +ties, +playerScore, +computerScore, added id playerScore and computerScore to html p tags, removed previous text content, removed extra comma from paper event listener
 
 var emojis = ["✂️ ", "📃", "🪨",]
 var emojiNum = 0;
-var shuffleIntID = setInterval(emojiShuffle, 170);
+var shuffleIntID = setInterval(emojiShuffle, 170);                         //set interval calls emojiShuffle every 170 milliseconds
 var shuffleEmojis = document.querySelector("#emoji-shuffle");
+
+let playerScore = document.querySelector('#playerScore');
+playerCount = 0;
+playerScore.textContent = playerCount;
+
+let computerScore = document.querySelector('#computerScore');
+computerCount = 0;
+computerScore.textContent = computerCount;
+
+let result = document.querySelector('#result');
+result.textContent = '';
+
+let ties = document.querySelector('#ties');
+tiesCount = 0;
+ties.textContent = tiesCount;
 
 let rock = document.querySelector('.rock');
 let paper = document.querySelector('.paper');
 let scissors = document.querySelector('.scissors');
 
-rock.addEventListener('click', () => playTheGame(emojis[2]));
-paper.addEventListener('click,', () => playTheGame(emojis[1]));
-scissors.addEventListener('click', () => playTheGame(emojis[0]));
+rock.addEventListener('click', () => playTheGame("🪨"));
+paper.addEventListener('click', () => playTheGame("📃"));
+scissors.addEventListener('click', () => playTheGame("✂️ "));
 
 
 function playTheGame(choice){
@@ -26,24 +41,27 @@ function playTheGame(choice){
     //change score
     var computerChoice = emojis[getNum(0,3)];                       //gets computer choice
     clearInterval(shuffleIntID);                                    //stops emoji shuffle for computer
+    shuffleEmojis.textContent = computerChoice;                     //displays computer choice
+
     if(choice == computerChoice){                                   //determines winner
-        //add tie count
-        //display result as tie
+        tiesCount++
+        ties.textContent = tiesCount;
+        result.textContent = "It's a tie!";
     }
-    else if(choice == '🪨' && computerChoice == '✂️ '){
-            return //player wins
-    }
-    else if(choice == '📃' && computerChoice == '🪨'){
-            return //player wins
-    }
-    else if(choice == '✂️ ' && computerChoice == '📃'){
-            return //player wins
+    else if(choice == '🪨' && computerChoice == '✂️ ' 
+        || choice == '📃' && computerChoice == '🪨' 
+        || choice == '✂️ ' && computerChoice == '📃'){
+            playerCount++;
+            playerScore.textContent = playerCount;
+            result.textContent = 'Player wins!';
     }
     else{
-        return //computer wins
+        computerCount++;
+        computerScore.textContent = computerCount;
+        result.textContent = 'Computer wins!';
     }
 
-}
+};
 
 function emojiShuffle(){
     comChoice = emojis[emojiNum];
@@ -54,8 +72,8 @@ function emojiShuffle(){
     else{
         emojiNum = 0;
     }
-}
+};
 
 function getNum(min, max){                                      
     return Math.floor(Math.random() * (max-min))+ min;
-}
+};
