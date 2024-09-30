@@ -60,20 +60,25 @@ function playTheGame(choice){
         computerScore.textContent = computerCount;
         result.textContent = 'Computer wins!';
     }
-
+    
+    setTimeout(()=>{                                                //restarts emoji shuffle
+        emojiNum = 0                                                //resets emojiNum
+        shuffleIntID = setInterval(emojiShuffle, 170);              //calls setIntveral again for emojiShuffle
+        shuffleEmojis.textContent = '';                             //resets emoji displayed
+    }, 1800);                                                       //1.8 second delay
 };
 
-function emojiShuffle(){
-    comChoice = emojis[emojiNum];
-    shuffleEmojis.textContent = comChoice;
-    if(emojiNum < emojis.length - 1){
+function emojiShuffle(){                                            //shuffles emojis in computer choice
+    comChoice = emojis[emojiNum];                                   //starts by calling index 0 of emoji array
+    shuffleEmojis.textContent = comChoice;                          //displays emoji
+    if(emojiNum < emojis.length - 1){                               //increases count of index number to cycle through each emoji
         emojiNum++;
     }
-    else{
+    else{                                                           //sets count back to 0 so it doesn't exceed index numbers
         emojiNum = 0;
     }
 };
 
-function getNum(min, max){                                      
+function getNum(min, max){                                          //random number generator for computer choice
     return Math.floor(Math.random() * (max-min))+ min;
 };
