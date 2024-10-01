@@ -65,7 +65,7 @@ function playTheGame(choice){
         emojiNum = 0                                                //resets emojiNum
         shuffleIntID = setInterval(emojiShuffle, 170);              //calls setIntveral again for emojiShuffle
         shuffleEmojis.textContent = '';                             //resets emoji displayed
-    }, 1800);                                                       //1.8 second delay
+    }, 1500);                                                       //1.8 second delay
 };
 
 function emojiShuffle(){                                            //shuffles emojis in computer choice
