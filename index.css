@@ -22,7 +22,7 @@ body{
         display: flex;
         flex-direction: column;
         align-items: center;
-        background-image: radial-gradient(circle, rgb(18, 152, 139), rgb(0, 0, 0));
+        background-image: radial-gradient(circle, rgba(18, 152, 139, 0.805), rgb(0, 0, 0));
         background-size: cover;
         margin: 50px;
         font-family: 'Slackey';
@@ -88,12 +88,19 @@ body{
     justify-content: center;
     height: 150px;
     width: 300px;
-    padding: 20px;
+    padding: 5px;
 }
 
 .option{
-    font-size: 70px;
+    font-size: 35px;
     margin-top: 18px;
+}
+
+@media (min-width: 600px){
+    .option{
+        font-size: 70px;
+        margin-top: 18px;
+    }
 }
 
 button{
