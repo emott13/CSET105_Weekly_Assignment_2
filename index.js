@@ -1,9 +1,3 @@
-//random num generator
-//rock choice
-//paper choice
-//scissors choice
-//changes: condensed playTheGame else if statements into single else if statement, added semicolons, +result, +ties, +playerScore, +computerScore, added id playerScore and computerScore to html p tags, removed previous text content, removed extra comma from paper event listener
-
 var emojis = ["✂️ ", "📃", "🪨",]
 var emojiNum = 0;
 var shuffleIntID = setInterval(emojiShuffle, 170);                         //set interval calls emojiShuffle every 170 milliseconds
@@ -34,11 +28,6 @@ scissors.addEventListener('click', () => playTheGame("✂️ "));
 
 
 function playTheGame(choice){
-    //display player choice
-    //get computer choice
-    // display computer choice
-    //display winner
-    //change score
     var computerChoice = emojis[getNum(0,3)];                       //gets computer choice
     clearInterval(shuffleIntID);                                    //stops emoji shuffle for computer
     shuffleEmojis.textContent = computerChoice;                     //displays computer choice
